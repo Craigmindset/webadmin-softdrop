@@ -1,6 +1,5 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import AuthLayout from './Layouts/AuthLayout';
-import { Children } from 'react';
 import Login from './Pages/Login';
 import AdminLayout from './Layouts/AdminLayout';
 import Dashboard from './Pages/Dashboard';
@@ -12,7 +11,7 @@ const router = createBrowserRouter([
     element: <AuthLayout />,
     children: [
       {
-        path: 'login',
+        path: '/',
         element: <Login />
       }
     ]
@@ -20,7 +19,8 @@ const router = createBrowserRouter([
   {
     path: "/admin",
     element: <AdminLayout />,
-    children: [{
+    children: [
+    {
       path: "dashboard",
       element: <Dashboard />
     },
