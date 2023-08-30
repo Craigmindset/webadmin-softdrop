@@ -9,6 +9,8 @@ import Dispute from './Pages/Dispute';
 import Settings from './Pages/Settings';
 import Deliveries from './Pages/Deliveries';
 import NotFound from './Pages/NotFound';
+import ForgotPassword from './Pages/ForgotPassword';
+import SetUpPassword from './Pages/SetUpPassword';
 
 const router = createBrowserRouter([
   {
@@ -19,6 +21,14 @@ const router = createBrowserRouter([
       {
         path: '/',
         element: <Login />
+      },
+      {
+        path : 'password-reset',
+        element : <ForgotPassword/>
+      },
+      {
+        path : 'set-up-password',
+        element : <SetUpPassword/>
       }
     ]
   },
