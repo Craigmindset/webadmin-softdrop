@@ -26,7 +26,7 @@ export default function Login(){
     }
 
     return(
-       <main className="flex flex-col items-center justify-center h-screen">
+       <main className="py-20 flex flex-col items-center justify-center">
             <img src={Logo} alt="SoftDrop Logo" />
             <div className="border-2 border-[#CACFD1] w-[40%] rounded p-14 mt-10">
                 <div className="text-center mb-6">
