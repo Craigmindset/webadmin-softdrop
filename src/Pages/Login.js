@@ -26,7 +26,7 @@ export default function Login(){
     }
 
     return(
-       <main className="py-20 flex flex-col items-center justify-center">
+       <main className="flex flex-col items-center justify-center h-screen">
             <img src={Logo} alt="SoftDrop Logo" />
             <div className="border-2 border-[#CACFD1] w-[40%] rounded p-14 mt-10">
                 <div className="text-center mb-6">
@@ -72,7 +72,7 @@ export default function Login(){
                             <input id = "remember" name="remember" className='mr-2' type="checkbox"/>  
                             Remember Me
                         </label> 
-                        <Link to={"/admin/dashboard"}>Forgot Password?</Link>                                  
+                        <Link to={"/password-reset"}>Forgot Password?</Link>                                  
                     </div>                                             
                             
                     <button
