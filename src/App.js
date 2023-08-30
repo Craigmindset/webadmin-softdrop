@@ -4,6 +4,11 @@ import Login from './Pages/Login';
 import AdminLayout from './Layouts/AdminLayout';
 import Dashboard from './Pages/Dashboard';
 import Senders from './Pages/Senders';
+import Travellers from './Pages/Travellers';
+import Dispute from './Pages/Dispute';
+import Settings from './Pages/Settings';
+import Deliveries from './Pages/Deliveries';
+import NotFound from './Pages/NotFound';
 
 const router = createBrowserRouter([
   {
@@ -19,6 +24,7 @@ const router = createBrowserRouter([
   {
     path: "/admin",
     element: <AdminLayout />,
+    errorElement: <NotFound />,
     children: [
     {
       path: "dashboard",
@@ -27,6 +33,24 @@ const router = createBrowserRouter([
     {
       path: "senders",
       element: <Senders />
+    },
+    {
+      path: "trevellers",
+      element: <Travellers />
+    },
+    {
+      path: "all-deliveries",
+      element: <Deliveries />
+    },{
+
+    },
+    {
+      path: "dispute",
+      element: <Dispute />
+    },
+    {
+      path: "settings",
+      element: <Settings />
     }
   ]
   }
