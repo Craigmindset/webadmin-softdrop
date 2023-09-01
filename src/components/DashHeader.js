@@ -2,7 +2,7 @@ import { BsBell, BsChevronDown, BsSearch } from "react-icons/bs";
 
 export default function DashHeader({title}){
     return(
-        <div className="flex justify-between items-center p-4">
+        <div className="flex justify-between items-center p-6">
             <div className="font-bold text-xl">
                 {title || "Put header title"}
             </div>

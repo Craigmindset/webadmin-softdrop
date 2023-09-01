@@ -8,7 +8,7 @@ export default function DashNav(){
 
     return(
         <div className="absolute p-4 hidden md:block md:w-[20%] bg-white h-[100vh] overflow-y-scroll">
-            <div className="flex justify-center">
+            <div className="flex justify-center h-[15vh]">
                 <img src={Logo} alt="softdrop logo" />
             </div>
             <div className="py-12">
