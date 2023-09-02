@@ -1,4 +1,4 @@
-import { BsBoxArrowUp, BsChevronDown, BsSearch } from "react-icons/bs";
+import { BsBoxArrowUp, BsChevronDown, BsChevronLeft, BsChevronRight, BsSearch } from "react-icons/bs";
 import Naira from "../assets/Naira";
 import DashHeader from "../components/DashHeader";
 import OverviewCard from "../components/OverviewCard";
@@ -49,17 +49,50 @@ export default function Senders(){
                     </div>
                 </div>
                 <div>
-                    <table>
+                    <table className="bg-white md:w-full table-auto border-collapse border border-slate-400">
                         <thead>
                             <tr>
-                                <th>Name</th>
-                                <th>User ID</th>
-                                <th>Email</th>
-                                <th>Phone number</th>
-                                <th>Signup Date</th>
+                                <th className=" border-slate-300 border-collapse p-3">Name</th>
+                                <th className=" border-slate-300 border-collapse p-3">User ID</th>
+                                <th className=" border-slate-300 border-collapse p-3">Email</th>
+                                <th className=" border-slate-300 border-collapse p-3">Phone number</th>
+                                <th className=" border-slate-300 border-collapse p-3">Signup Date</th>
+                                <th className=" border-slate-300 border-collapse p-3">Delivery Sent</th>
+                                <th className=" border-slate-300 border-collapse p-3">Status</th>
                             </tr>
                         </thead>
+                        <tbody>
+                            <tr className="border border-slate-300 border-collapse p-3">
+                                <td className="border-slate-300 border-collapse p-3">Frank Richard</td>
+                                <td className="border-slate-300 border-collapse p-3">7098465</td>
+                                <td className="border-slate-300 border-collapse p-3">frankrich@gmail.com</td>
+                                <td className="border-slate-300 border-collapse p-3">+2345877689059</td>
+                                <td className="border-slate-300 border-collapse p-3">Jan 7, 2021</td>
+                                <td className="border-slate-300 border-collapse p-3">7</td>
+                                <td className="border-slate-300 border-collapse p-3"> <div className="bg-[#22BC92] text-white text-center">Active</div> </td>
+                            </tr>
+                        </tbody>
                     </table>
+                </div>
+
+                <div className="flex md:w-[35%] mx-auto my-4 justify-evenly items-center">
+                    <button className="flex items-center">
+                        <BsChevronLeft />
+                        Prev
+                    </button>
+                    <div className="flex">
+                        <select className="mx-2">
+                            <option>1</option>
+                        </select>
+                        <div>
+                            of 99
+                        </div>
+                    </div>
+                    
+                    <button className="flex items-center">
+                        Next
+                        <BsChevronRight />
+                    </button>
                 </div>
             </div>
         </div>
