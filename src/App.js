@@ -46,7 +46,7 @@ const router = createBrowserRouter([
       element: <Senders />
     },
     {
-      path: "trevellers",
+      path: "travellers",
       element: <Travellers />
     },
     {
