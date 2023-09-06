@@ -1,8 +1,8 @@
 import React from 'react'
 
-export default function DashboardCard({title, amount, percentage, naira}) {
+export default function DashboardCard({title, amount, percentage, naira, bgColor}) {
   return (
-    <div className='bg-white rounded-lg p-6'>
+    <div className={`${bgColor ? "bg-black text-white":"bg-white"} rounded-lg p-6`}>
       <h2>{title}</h2>
       <p className='font-semibold text-xl lg:text-3xl my-4'>{naira}{amount}</p>
       {
