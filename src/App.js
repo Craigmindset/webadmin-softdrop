@@ -11,6 +11,7 @@ import Deliveries from './Pages/Deliveries';
 import NotFound from './Pages/NotFound';
 import ForgotPassword from './Pages/ForgotPassword';
 import SetUpPassword from './Pages/SetUpPassword';
+import Payments from './Pages/Payments';
 
 const router = createBrowserRouter([
   {
@@ -53,7 +54,8 @@ const router = createBrowserRouter([
       path: "all-deliveries",
       element: <Deliveries />
     },{
-
+      path: "payments",
+      element: <Payments/>
     },
     {
       path: "dispute",
