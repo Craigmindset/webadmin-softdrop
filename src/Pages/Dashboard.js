@@ -1,6 +1,10 @@
 import DashHeader from "../components/DashHeader";
 import DashboardCard from "../components/DashboardCard";
 import Naira from "../assets/Naira";
+import PieChart from "../components/PieChart";
+import BarChart from "../components/BarChart";
+import LineChartSection from "../components/LineChartSection";
+
 
 export default function Dashboard(){
     return(
@@ -11,6 +15,13 @@ export default function Dashboard(){
                 <DashboardCard title="Total Travelers" percentage={-4.4} amount="8,245"/>
                 <DashboardCard title="Total Income" percentage={2.5} naira={<Naira/>} amount="45,240,750,000"/>
             </section>
+            <div>
+                <LineChartSection/>
+            </div>
+            <div className="mt-10 grid grid-cols-[1fr_1fr] gap-4">
+                <BarChart/>
+                <PieChart/>
+            </div>
         </main>
     )
 }
