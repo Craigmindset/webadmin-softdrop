@@ -12,6 +12,10 @@ import NotFound from './Pages/NotFound';
 import ForgotPassword from './Pages/ForgotPassword';
 import SetUpPassword from './Pages/SetUpPassword';
 import Payments from './Pages/Payments';
+import ManageTeams from './components/ManageTeams';
+import ProfileSetting from './components/ProfileSetting';
+import SecuritySettings from './components/SecuritySettings';
+
 
 const router = createBrowserRouter([
   {
@@ -63,7 +67,20 @@ const router = createBrowserRouter([
     },
     {
       path: "settings",
-      element: <Settings />
+      element: <Settings />,
+      children:[
+        {
+          path: "profile-settings",
+          element: <ProfileSetting />
+        },{
+          path: "manage-team",
+          element: <ManageTeams/>
+        },
+        {
+          path: "security-settings",
+          element: <SecuritySettings />
+        }
+      ]
     }
   ]
   }

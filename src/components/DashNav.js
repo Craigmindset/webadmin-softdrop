@@ -50,7 +50,7 @@ export default function DashNav(){
                 </NavLink>
                 <NavLink active={location.pathname === "/admin/settings"}>
                     <BsGear size={navIconSize} />
-                    <Link to={"/admin/settings"} className="px-2">
+                    <Link to={"/admin/settings/profile-settings"} className="px-2">
                         Settings
                     </Link>
                 </NavLink>

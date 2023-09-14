@@ -1,7 +1,13 @@
+import { Outlet } from "react-router-dom"
+import DashHeader from "../components/DashHeader"
+import SettingsNav from "../components/SettingsNav"
+
 export default function Settings(){
     return(
-        <div>
-            this is the settings page
-        </div>
+        <main className="p-6">
+            <DashHeader title={'Settings'} />
+            <SettingsNav/>
+            <Outlet/>
+        </main>
     )
 }
