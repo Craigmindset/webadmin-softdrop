@@ -48,7 +48,7 @@ export default function DashNav(){
                         Dispute
                     </Link>
                 </NavLink>
-                <NavLink active={location.pathname === "/admin/settings"}>
+                <NavLink active={location.pathname === "/admin/settings/*"}>
                     <BsGear size={navIconSize} />
                     <Link to={"/admin/settings/profile-settings"} className="px-2">
                         Settings
