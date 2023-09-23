@@ -28,7 +28,7 @@ export default function Login(){
     return(
        <main className="flex flex-col items-center justify-center h-screen">
             <img src={Logo} alt="SoftDrop Logo" />
-            <div className="border-2 border-[#CACFD1] w-[40%] rounded p-14 mt-10">
+            <div className="border-2 border-[#CACFD1] w-[40%] rounded p-10 mt-8">
                 <div className="text-center mb-6">
                     <h1 className="font-medium text-[44px]">
                         Admin Login
@@ -83,8 +83,6 @@ export default function Login(){
                     </button>                                                    
                 </form>  
             </div>
-            
-        {/* <Link to={"/admin/dashboard"}>Login</Link> */}
        </main>
     )
 }

@@ -1,4 +1,4 @@
-import { Bar, BarChart, XAxis, YAxis, Tooltip, CartesianGrid } from "recharts"
+import { Bar, BarChart, XAxis, Tooltip } from "recharts"
 import Naira from "../assets/Naira";
 
 
