@@ -1,4 +1,4 @@
-import Avatar from "../assets/svg/Avatar.svg"
+import Avatar from "../../assets/svg/Avatar.svg"
 import { BsTrashFill } from 'react-icons/bs'
 
 export default function RequestCard({email, name, status}) {

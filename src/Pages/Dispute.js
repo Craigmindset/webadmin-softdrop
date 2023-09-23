@@ -1,6 +1,6 @@
 import { BsBoxArrowUp } from "react-icons/bs";
 import DashHeader from "../components/DashHeader";
-import DashboardCard from "../components/DashboardCard";
+import DashboardCard from "../components/OverviewCard";
 import MenuSelect from "../components/MenuSelect";
 import { DataGrid } from '@mui/x-data-grid';
 

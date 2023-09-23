@@ -12,9 +12,14 @@ import NotFound from './Pages/NotFound';
 import ForgotPassword from './Pages/ForgotPassword';
 import SetUpPassword from './Pages/SetUpPassword';
 import Payments from './Pages/Payments';
-import ManageTeams from './components/ManageTeams';
-import ProfileSetting from './components/ProfileSetting';
-import SecuritySettings from './components/SecuritySettings';
+import ManageTeams from './components/SettingsComponents/ManageTeams';
+import ProfileSetting from './components/SettingsComponents/ProfileSetting';
+import SecuritySettings from './components/SettingsComponents/SecuritySettings';
+import All from "./components/DeliveryComponents/All"
+import Completed from "./components/DeliveryComponents/Completed"
+import InTransit from "./components/DeliveryComponents/InTransit"
+import Canceled from "./components/DeliveryComponents/Canceled"
+import AwaitingPickup from "./components/DeliveryComponents/AwaitingPickup"
 
 
 const router = createBrowserRouter([
@@ -56,7 +61,27 @@ const router = createBrowserRouter([
     },
     {
       path: "all-deliveries",
-      element: <Deliveries />
+      element: <Deliveries />,
+      children:[
+        {
+          path: "all",
+          element: <All />
+        },{
+          path: "in-transit",
+          element: <InTransit/>
+        },
+        {
+          path: "completed",
+          element: <Completed />
+        },{
+          path: "canceled",
+          element: <Canceled/>
+        },
+        {
+          path: "awaiting-pickup",
+          element: <AwaitingPickup />
+        }
+      ]
     },{
       path: "payments",
       element: <Payments/>

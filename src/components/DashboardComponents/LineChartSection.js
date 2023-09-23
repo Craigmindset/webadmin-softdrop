@@ -1,6 +1,6 @@
 import React from 'react'
 import { Line, LineChart, Tooltip, XAxis, YAxis, CartesianGrid } from 'recharts'
-import MenuSelect from './MenuSelect'
+import MenuSelect from '../MenuSelect'
 
 export default function LineChartSection() {
     const data = [
