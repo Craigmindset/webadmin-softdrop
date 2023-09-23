@@ -30,9 +30,9 @@ export default function DashNav(){
                         Travellers
                     </Link>
                 </NavLink>
-                <NavLink active={location.pathname === "/admin/all-deliveries"}>
+                <NavLink active={location.pathname.includes("/admin/all-deliveries/")}>
                     <BsBox size={navIconSize} />
-                    <Link to={"/admin/all-deliveries"} className="px-2">
+                    <Link to={"/admin/all-deliveries/all"} className="px-2">
                         All Deliveries
                     </Link>
                 </NavLink>
@@ -48,7 +48,7 @@ export default function DashNav(){
                         Dispute
                     </Link>
                 </NavLink>
-                <NavLink active={location.pathname === "/admin/settings/profile-settings"}>
+                <NavLink active={location.pathname.includes("/admin/settings/")}>
                     <BsGear size={navIconSize} />
                     <Link to={"/admin/settings/profile-settings"} className="px-2">
                         Settings

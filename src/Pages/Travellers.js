@@ -1,6 +1,6 @@
 import Naira from "../assets/Naira"
 import DashHeader from "../components/DashHeader"
-import DashboardCard from "../components/DashboardCard"
+import DashboardCard from "../components/OverviewCard"
 import { DataGrid } from '@mui/x-data-grid';
 
 

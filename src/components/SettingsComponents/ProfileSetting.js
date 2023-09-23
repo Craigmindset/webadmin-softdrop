@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import Avatar from "../assets/svg/Avatar.svg"
+import Avatar from "../../assets/svg/Avatar.svg"
 
 export default function ProfileSetting() {
     const [formData, setFormData] = useState({

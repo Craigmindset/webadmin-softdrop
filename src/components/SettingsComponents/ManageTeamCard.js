@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import Avatar from "../assets/svg/Avatar.svg"
+import Avatar from "../../assets/svg/Avatar.svg"
 import { BsTrashFill } from 'react-icons/bs'
 
 export default function ManageTeamCard({email, name, role}) {

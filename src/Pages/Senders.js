@@ -24,23 +24,14 @@ export default function Senders(){
   ];
 
     return(
-        <div>
+        <main className="p-6">
             <DashHeader title={"Senders"} />
-            <div className="flex justify-between p-6">
-                <OverviewCard>
-                    <p>Created orders</p>
-                    <h2 className="text-xl font-semibold">8,918</h2>
-                </OverviewCard>    
-                <OverviewCard>
-                    <p>Orders canceled</p>
-                    <h2 className="text-xl font-semibold">32</h2>
-                </OverviewCard>
-                <OverviewCard>
-                    <p>Total spent</p>
-                    <h2 className="text-xl font-semibold"><Naira /> 321,499</h2>
-                </OverviewCard>
-            </div>
-            <div className="p-6">
+            <section className="grid grid-cols-3 gap-6 mb-10">
+                <OverviewCard title="Created orders" amount="8,918"/>
+                <OverviewCard title="Orders canceled" amount="32"/>
+                <OverviewCard title="Total spent" naira={<Naira/>} amount="321,499"/>
+            </section>
+            <section>
                 <div className="flex items-center justify-between">
                     <div className="flex items-center ">
                         <p className="font-semibold">Sort by</p>
@@ -118,7 +109,7 @@ export default function Senders(){
                         <BsChevronRight />
                     </button>
                 </div>
-            </div>
-        </div>
+            </section>
+        </main>
     )
 }
