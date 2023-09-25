@@ -1,16 +1,13 @@
+// import Map from 'react-map-gl/maplibre';
 import { Data } from "../../assets/Data";
 import DeliveryDetailsCard from "./DeliveryDetailsCard";
 
-export default function AwaitingPickup() {
-  const data = Data.filter((item)=> {
-    return item.status ==="Awaiting Pickup"
-  });
-
+export default function AllDeliveries() {
   return (
     <div className="grid grid-cols-[0.5fr_1fr]">
       <section className="flex flex-col gap-5">
         {
-          data.map((detail) => (
+          Data.map((detail) => (
             <DeliveryDetailsCard key={detail.itemId} {...detail} />
           ))
         }
