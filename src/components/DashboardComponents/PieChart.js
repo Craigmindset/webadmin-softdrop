@@ -1,8 +1,8 @@
 import React from 'react'
 import MenuSelect from '../MenuSelect'
 import { VictoryPie } from 'victory'
-import Line1 from "../../assets/svg/line (1).svg"
-import Line2 from "../../assets/svg/line.svg"
+import Line1 from "../../assets/svg/Line2.svg"
+import Line2 from "../../assets/svg/Line3.svg"
 
 export default function PieChart() {
     const sampleData = [

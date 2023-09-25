@@ -15,11 +15,11 @@ import Payments from './Pages/Payments';
 import ManageTeams from './components/SettingsComponents/ManageTeams';
 import ProfileSetting from './components/SettingsComponents/ProfileSetting';
 import SecuritySettings from './components/SettingsComponents/SecuritySettings';
-import All from "./components/DeliveryComponents/All"
 import Completed from "./components/DeliveryComponents/Completed"
 import InTransit from "./components/DeliveryComponents/InTransit"
 import Canceled from "./components/DeliveryComponents/Canceled"
 import AwaitingPickup from "./components/DeliveryComponents/AwaitingPickup"
+import AllDeliveries from './components/DeliveryComponents/AllDeliveries';
 
 
 const router = createBrowserRouter([
@@ -65,21 +65,21 @@ const router = createBrowserRouter([
       children:[
         {
           path: "all",
-          element: <All />
+          element: <AllDeliveries />
         },{
           path: "in-transit",
           element: <InTransit/>
         },
         {
           path: "completed",
-          element: <Completed />
+          element: <Completed/>
         },{
           path: "canceled",
           element: <Canceled/>
         },
         {
           path: "awaiting-pickup",
-          element: <AwaitingPickup />
+          element: <AwaitingPickup/>
         }
       ]
     },{
