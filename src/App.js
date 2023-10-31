@@ -20,98 +20,103 @@ import InTransit from "./components/DeliveryComponents/InTransit"
 import Canceled from "./components/DeliveryComponents/Canceled"
 import AwaitingPickup from "./components/DeliveryComponents/AwaitingPickup"
 import AllDeliveries from './components/DeliveryComponents/AllDeliveries';
+import useUser from './hooks/useUser';
 
-
-const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <AuthLayout />,
-    errorElement: <NotFound />,
-    children: [
-      {
-        path: '/',
-        element: <Login />
-      },
-      {
-        path : 'password-reset',
-        element : <ForgotPassword/>
-      },
-      {
-        path : 'set-up-password',
-        element : <SetUpPassword/>
-      }
-    ]
-  },
-  {
-    path: "/admin",
-    element: <AdminLayout />,
-    errorElement: <NotFound />,
-    children: [
-    {
-      path: "dashboard",
-      element: <Dashboard />
-    },
-    {
-      path: "senders",
-      element: <Senders />
-    },
-    {
-      path: "travellers",
-      element: <Travellers />
-    },
-    {
-      path: "all-deliveries",
-      element: <Deliveries />,
-      children:[
-        {
-          path: "all",
-          element: <AllDeliveries />
-        },{
-          path: "in-transit",
-          element: <InTransit/>
-        },
-        {
-          path: "completed",
-          element: <Completed/>
-        },{
-          path: "canceled",
-          element: <Canceled/>
-        },
-        {
-          path: "awaiting-pickup",
-          element: <AwaitingPickup/>
-        }
-      ]
-    },{
-      path: "payments",
-      element: <Payments/>
-    },
-    {
-      path: "dispute",
-      element: <Dispute />
-    },
-    {
-      path: "settings",
-      element: <Settings />,
-      children:[
-        {
-          path: "profile-settings",
-          element: <ProfileSetting />
-        },{
-          path: "manage-team",
-          element: <ManageTeams/>
-        },
-        {
-          path: "security-settings",
-          element: <SecuritySettings />
-        }
-      ]
-    }
-  ]
-  }
-])
 
 function App() {
+
+  const { user } = useUser()
+
+  const router = createBrowserRouter([
+    {
+      path: "/",
+      element: <AuthLayout />,
+      errorElement: <NotFound />,
+      children: [
+        {
+          path: '/',
+          element: <Login />
+        },
+        {
+          path : 'password-reset',
+          element : <ForgotPassword/>
+        },
+        {
+          path : 'set-up-password',
+          element : <SetUpPassword/>
+        }
+      ]
+    },
+    {
+      path: "/admin",
+      element: !user ? <Login /> : <AdminLayout />,
+      errorElement: <NotFound />,
+      children: [
+      {
+        path: "dashboard",
+        element: <Dashboard />
+      },
+      {
+        path: "senders",
+        element: <Senders />
+      },
+      {
+        path: "travellers",
+        element: <Travellers />
+      },
+      {
+        path: "all-deliveries",
+        element: <Deliveries />,
+        children:[
+          {
+            path: "all",
+            element: <AllDeliveries />
+          },{
+            path: "in-transit",
+            element: <InTransit/>
+          },
+          {
+            path: "completed",
+            element: <Completed/>
+          },{
+            path: "canceled",
+            element: <Canceled/>
+          },
+          {
+            path: "awaiting-pickup",
+            element: <AwaitingPickup/>
+          }
+        ]
+      },{
+        path: "payments",
+        element: <Payments/>
+      },
+      {
+        path: "dispute",
+        element: <Dispute />
+      },
+      {
+        path: "settings",
+        element: <Settings />,
+        children:[
+          {
+            path: "profile-settings",
+            element: <ProfileSetting />
+          },{
+            path: "manage-team",
+            element: <ManageTeams/>
+          },
+          {
+            path: "security-settings",
+            element: <SecuritySettings />
+          }
+        ]
+      }
+    ]
+    }
+  ])
+
+
   return (
     <div className='font-Lato'>
       <RouterProvider router={router} />
