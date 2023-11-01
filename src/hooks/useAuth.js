@@ -6,15 +6,22 @@ import useUser from "./useUser";
 export default function useAuth(){
     let { saveToken, deleteToken } = useToken()
     let { removeUser } = useUser()
+
+    let [authLoading, setAuthLoading] = useState(false);
     let [errorAuth, setErrorAuth] = useState({error: false, message: ""})
 
     async function login(payload){
+        setAuthLoading(true);
+        console.log("loading...")
         let adminPayload = await loginAdmin(payload);
+        console.log(adminPayload);
         if(adminPayload.error) {
             setErrorAuth({error: true, message: adminPayload.message})
+            setAuthLoading(false)
             return 
         }
         saveToken(adminPayload.token);
+        setAuthLoading(false)
     }
 
     function logout(){
@@ -22,5 +29,5 @@ export default function useAuth(){
         removeUser()
     }
 
-    return { login, logout, errorAuth }
+    return { login, logout, errorAuth, authLoading }
 }

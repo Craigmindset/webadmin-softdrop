@@ -1,4 +1,4 @@
-import { createBrowserRouter, RouterProvider } from 'react-router-dom'
+import { createBrowserRouter, RouterProvider, Navigate } from 'react-router-dom'
 import AuthLayout from './Layouts/AuthLayout';
 import Login from './Pages/Login';
 import AdminLayout from './Layouts/AdminLayout';
@@ -20,17 +20,17 @@ import InTransit from "./components/DeliveryComponents/InTransit"
 import Canceled from "./components/DeliveryComponents/Canceled"
 import AwaitingPickup from "./components/DeliveryComponents/AwaitingPickup"
 import AllDeliveries from './components/DeliveryComponents/AllDeliveries';
-import useUser from './hooks/useUser';
+import useToken from './hooks/useToken';
 
 
 function App() {
+  const { token } = useToken()
 
-  const { user } = useUser()
 
   const router = createBrowserRouter([
     {
       path: "/",
-      element: <AuthLayout />,
+      element: token ? <Navigate to="/admin/dashboard" replace={true} /> : <AuthLayout />,
       errorElement: <NotFound />,
       children: [
         {
@@ -49,7 +49,7 @@ function App() {
     },
     {
       path: "/admin",
-      element: !user ? <Login /> : <AdminLayout />,
+      element: !token ? <Login /> : <AdminLayout />,
       errorElement: <NotFound />,
       children: [
       {

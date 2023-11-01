@@ -10,10 +10,12 @@ async function loginAdmin(payload){
             body: JSON.stringify(payload)
         })
     
-        let data = response.json();
+        console.log("response: ", response)
+        let data = response?.json();
     
         return data;
     }catch(err){
+        console.log(err)
         return {error: true, message: err.message}
     }
 }

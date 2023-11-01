@@ -1,26 +1,34 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { getUserProfile } from "../api/users";
 import useToken from "./useToken";
 
-export default async function useUser(){
+export default function useUser(){
     let { token } = useToken();
-    let [user, setUser] = useState(await getUser())
 
-    async function getUser(){
-        if(!token) return null;
-        if(user) return user;
-
+    let [user, setUser] = useState(null)
+    let [loadingUser, setLoadingUser] = useState(false)
+    let [userError, setUserError] = useState({error: false, message: ""})
+    
+     async function getUser(){
+        setLoadingUser(true)
         let userProfile = await getUserProfile(token);
         console.log(userProfile)
         if(userProfile.error){
-            return null
+            setUserError(userProfile)
+            setLoadingUser(false)
+            return
         }
-        return userProfile
+        setUser(userProfile)
+        setLoadingUser(false)
     }
 
-    async function removeUser(){
+    function removeUser(){
         setUser(null)
     }
 
-    return { user, removeUser }
+    useEffect(()=>{
+        getUser()
+    }, [])
+
+    return { user, removeUser, loadingUser, userError }
 }

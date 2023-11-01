@@ -1,15 +1,17 @@
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Logo from "../assets/svg/SoftDropLogo.svg"
 import { useState } from "react";
+import useAuth from "../hooks/useAuth";
 
 export default function Login(){
+    const { login, authLoading, errorAuth } = useAuth();
+
     const [formData, setFormData] = useState({
         email : "",
         password : ""
     });
     // TODO: use loading state when user logs in
     // const [loading, setLoading] = useState(false);
-    const navigate = useNavigate();
 
     const handleOnChange = (e) => {
         const { name, value } = e.target;
@@ -21,7 +23,7 @@ export default function Login(){
             alert('Please fill all the fields')
         }else{
             console.log(formData)
-            navigate("/admin/dashboard")
+            login(formData);
         }
     }
 
@@ -37,6 +39,7 @@ export default function Login(){
                 </div>
                 <form className='flex flex-col items-center justify-center gap-4 w-full font-bold' onSubmit={handleOnSubmit}>                                                                                            
                     <div className='flex flex-col items-center gap-3 w-full'>
+                        { errorAuth.error && <div className="text-red-500">{errorAuth.message}</div> }       
                         <label htmlFor="email" className='font-bold self-start'>
                             Email address
                         </label>
@@ -75,12 +78,20 @@ export default function Login(){
                         <Link to={"/password-reset"}>Forgot Password?</Link>                                  
                     </div>                                             
                             
-                    <button
-                        className="bg-black py-4 rounded text-white w-full"
-                        type="submit"                        
-                    >
-                        Login                         
-                    </button>                                                    
+                    {
+                        authLoading
+                        ?
+                        <div className="bg-[#EEEEEE] py-4 rounded text-black text-center w-full">
+                            Login
+                        </div>
+                        :
+                        <button
+                            className="bg-black py-4 rounded text-white w-full"
+                            type="submit"                        
+                        >
+                                Login                         
+                        </button> 
+                    }                                                   
                 </form>  
             </div>
        </main>
