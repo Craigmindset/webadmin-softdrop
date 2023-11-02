@@ -1,11 +1,10 @@
 import { Outlet } from "react-router-dom";
 import DashNav from "../components/DashNav";
+import ErrorPage from "../Pages/ErrorPage";
 import useUser from "../hooks/useUser";
 
 export default function AdminLayout(){
     let { user, LoadingUser } = useUser()
-    console.log(user)
-
     return(
         <div className="w-full justify-between">
             <DashNav />
@@ -15,9 +14,9 @@ export default function AdminLayout(){
                     ?
                     <div> Loading.. </div>
                     :
-                    !user
+                    !user && !LoadingUser
                     ?
-                    <div> An error occured </div>
+                    <ErrorPage />
                     :
                     <Outlet user={user} />
                 }

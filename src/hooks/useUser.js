@@ -19,6 +19,7 @@ export default function useUser(){
             return
         }
         setUser(userProfile)
+        setUserError({error: false, message: ""});
         setLoadingUser(false)
     }
 
