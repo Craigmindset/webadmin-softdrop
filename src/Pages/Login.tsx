@@ -1,7 +1,8 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 // import Logo from "../assets/svg/SoftDropLogo.svg";
 import { useState, ChangeEvent, FormEvent } from "react";
-import useAuth from "../hooks/useAuth";
+// import useAuth from "../hooks/useAuth";
+import useToken from "../hooks/useToken";
 import React from "react";
 
 interface LoginForm {
@@ -10,26 +11,27 @@ interface LoginForm {
 }
 
 const Login: React.FC = () => {
-  const { login, authLoading, errorAuth } = useAuth();
+  // Authentication removed
   const [formData, setFormData] = useState<LoginForm>({
     email: "",
     password: "",
   });
-  // TODO: use loading state when user logs in
-  // const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
+  const { saveToken } = useToken();
 
   const handleOnChange = (e: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     setFormData((prevFormData) => ({ ...prevFormData, [name]: value }));
   };
 
-  const handleOnSubmit = async (e: FormEvent<HTMLFormElement>) => {
+  const handleOnSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (!formData.email || !formData.password) {
       alert("Please fill all the fields");
     } else {
-      console.log(formData);
-      login(formData);
+      // Save a dummy token and redirect to dashboard
+      saveToken("dummy_token_" + Date.now());
+      navigate("/admin/dashboard");
     }
   };
 
@@ -46,9 +48,6 @@ const Login: React.FC = () => {
           onSubmit={handleOnSubmit}
         >
           <div className="flex flex-col items-center gap-2 w-full">
-            {errorAuth.error && (
-              <div className="text-red-500 text-sm">{errorAuth.message}</div>
-            )}
             <label htmlFor="email" className="font-bold self-start text-sm">
               Email
             </label>
@@ -92,18 +91,12 @@ const Login: React.FC = () => {
               Forgot Password?
             </Link>
           </div>
-          {authLoading ? (
-            <div className="bg-[#EEEEEE] py-3 rounded text-black text-center w-full text-base mt-2">
-              Login
-            </div>
-          ) : (
-            <button
-              className="bg-black py-3 rounded text-white w-full text-base mt-2"
-              type="submit"
-            >
-              Login
-            </button>
-          )}
+          <button
+            className="bg-black py-3 rounded text-white w-full text-base mt-2"
+            type="submit"
+          >
+            Login
+          </button>
         </form>
       </div>
     </main>
